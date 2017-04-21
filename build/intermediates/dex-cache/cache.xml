@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/liferay/development/NXP1/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
+        <dex dex="/liferay/development/NXP1/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_5bd73b88b79748ba932efb25ef7e471a9e10f4b0/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/liferay/development/NXP1/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2d026240193207bae90496b677d53ca5c171cc79">
+        <dex dex="/liferay/development/NXP1/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_8f72b089a96b076a011800e2cf37249f11b3cf0b/classes.dex" />
+    </item>
+
+</items>
