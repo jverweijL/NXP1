@@ -4,15 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.liferay.nxp1.LoginActivity">
+    tools:context="com.liferay.nxp1.BlogActivity">
 
-    <com.liferay.mobile.screens.auth.login.LoginScreenlet
-        android:id="@+id/login"
-        android:layout_width="368dp"
-        android:layout_height="495dp"
-        app:loginMode="cookie"
-        tools:layout_editor_absoluteY="8dp"
-        tools:layout_editor_absoluteX="8dp"/>
-
+    <com.liferay.mobile.screens.blogs.BlogsEntryDisplayScreenlet
+        android:id="@+id/contactform"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        app:entryId="32647">
+    </com.liferay.mobile.screens.blogs.BlogsEntryDisplayScreenlet>
 
 </android.support.constraint.ConstraintLayout>

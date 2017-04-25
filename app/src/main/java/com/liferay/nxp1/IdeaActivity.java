@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.liferay.mobile.screens.ddl.form.DDLFormListener;
 import com.liferay.mobile.screens.ddl.model.DocumentField;
 import com.liferay.mobile.screens.ddl.model.Record;
+import com.liferay.mobile.screens.ddl.form.DDLFormScreenlet;
 
 import org.json.JSONObject;
 
@@ -20,6 +21,8 @@ import java.util.Map;
 public class IdeaActivity extends AppCompatActivity implements DDLFormListener {
 
     private TextView mTextMessage;
+
+
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -30,8 +33,8 @@ public class IdeaActivity extends AppCompatActivity implements DDLFormListener {
                 case R.id.navigation_home:
                     mTextMessage.setText(R.string.title_home);
                     return true;
-                case R.id.navigation_dashboard:
-                    mTextMessage.setText(R.string.title_dashboard);
+                case R.id.navigation_blog:
+                    mTextMessage.setText(R.string.title_blog);
                     return true;
                 case R.id.navigation_notifications:
                     mTextMessage.setText(R.string.title_notifications);
@@ -50,11 +53,14 @@ public class IdeaActivity extends AppCompatActivity implements DDLFormListener {
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        DDLFormScreenlet ideaform = (DDLFormScreenlet) findViewById(R.id.ideaform);
+        ideaform.setListener(this);
     }
 
     @Override
     public void onDDLFormLoaded(Record record) {
-
+        Toast.makeText(this,"Form loaded!",Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -64,8 +70,8 @@ public class IdeaActivity extends AppCompatActivity implements DDLFormListener {
 
     @Override
     public void onDDLFormRecordAdded(Record record) {
-        Toast.makeText(this,"Received information!",Toast.LENGTH_SHORT).show();
-        startActivity(new Intent(this, MainActivity.class));
+        Toast.makeText(this,"Received information!",Toast.LENGTH_LONG).show();
+        //startActivity(new Intent(this, MainActivity.class));
     }
 
     @Override
