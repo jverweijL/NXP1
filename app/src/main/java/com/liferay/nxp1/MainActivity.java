@@ -21,15 +21,16 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.navigation_home:
                     mTextMessage.setText(R.string.title_home);
                     return true;
-                case R.id.navigation_dashboard:
-                    mTextMessage.setText(R.string.title_dashboard);
+                case R.id.navigation_blog:
+                    Intent blogintent = new Intent(getApplicationContext(), BlogActivity.class);
+                    startActivity(blogintent);
                     return true;
                 case R.id.navigation_notifications:
                     mTextMessage.setText(R.string.title_notifications);
                     return true;
                 case R.id.navigation_idea:
-                    Intent intent = new Intent(getApplicationContext(), IdeaActivity.class);
-                    startActivity(intent);
+                    Intent ideaintent = new Intent(getApplicationContext(), IdeaActivity.class);
+                    startActivity(ideaintent);
                     return true;
             }
             return false;
