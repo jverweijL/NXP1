@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <!-- nxp colors -->
+    <color name="nxp1">#ffb100</color>
+    <color name="nxp2">#86bae0</color>
+    <color name="nxp3">#cfd800</color>
+
+    <color name="nxpGray1">#e7e8e9</color>
+    <color name="nxpGray2">#545457</color>
+    <color name="nxpGray3">#2a2a2b</color>
+</resources>
