@@ -1,0 +1,27 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.liferay.nxp1.RatingFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.liferay.mobile.screens.webcontent.display.WebContentDisplayScreenlet
+            android:id="@+id/webcontent"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            app:articleId="36837"/>
+
+        <com.liferay.mobile.screens.rating.RatingScreenlet
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            app:editable="true"
+            app:classPK="36839"
+            app:className="com.liferay.journal.model.JournalArticle"/>
+    </LinearLayout>
+
+</FrameLayout>

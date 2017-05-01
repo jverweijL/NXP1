@@ -1,10 +1,15 @@
 <resources>
     <string name="app_name">myNXP</string>
     <string name="title_home">Home</string>
-    <string name="title_blog">Blog</string>
     <string name="title_dashboard">Dashboard</string>
+    <string name="title_blog">Blog</string>
     <string name="title_notifications">Notifications</string>
     <string name="title_idea">Idea</string>
     <string name="helloworld">Hello World!</string>
     <string name="title_activity_idea">IdeaActivity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_rating">Rating</string>
+    <string name="title_hr_selfservice">HR Selfservice</string>
 </resources>

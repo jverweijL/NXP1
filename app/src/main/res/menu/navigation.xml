@@ -12,9 +12,14 @@
         android:title="@string/title_blog" />
 
     <item
-        android:id="@+id/navigation_notifications"
-        android:icon="@drawable/ic_notifications_black_24dp"
-        android:title="@string/title_notifications" />
+    android:id="@+id/navigation_rating"
+    android:icon="@drawable/ic_rating_black_24dp"
+    android:title="@string/title_rating" />
+
+    <item
+        android:id="@+id/navigation_briefcase"
+        android:icon="@drawable/ic_briefcase_black_24dp"
+        android:title="@string/title_hr_selfservice" />
 
     <item
         android:id="@+id/navigation_idea"
