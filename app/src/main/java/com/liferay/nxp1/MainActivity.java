@@ -14,10 +14,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import com.liferay.mobile.android.service.Session;
+import com.liferay.mobile.push.Push;
 import com.liferay.mobile.screens.push.PushScreensActivity;
 import org.json.JSONObject;
 
-public class MainActivity extends FragmentActivity implements MainFragment.OnFragmentInteractionListener,RatingFragment.OnFragmentInteractionListener,IdeaFragment.OnFragmentInteractionListener,BlogFragment.OnFragmentInteractionListener {
+public class MainActivity extends PushScreensActivity implements MainFragment.OnFragmentInteractionListener,RatingFragment.OnFragmentInteractionListener,IdeaFragment.OnFragmentInteractionListener,BlogFragment.OnFragmentInteractionListener {
   
     private View content;
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
