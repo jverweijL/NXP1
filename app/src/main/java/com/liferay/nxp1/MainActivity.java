@@ -23,7 +23,8 @@ public class MainActivity extends PushScreensActivity implements MainFragment.On
                                                                     IdeaFragment.OnFragmentInteractionListener,
                                                                     BlogFragment.OnFragmentInteractionListener,
                                                                     SelfserviceFragment.OnFragmentInteractionListener,
-                                                                    PaySlipFragment.OnFragmentInteractionListener {
+                                                                    PaySlipFragment.OnFragmentInteractionListener,
+                                                                    ShiftChangeFragment.OnFragmentInteractionListener {
   
     private View content;
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
