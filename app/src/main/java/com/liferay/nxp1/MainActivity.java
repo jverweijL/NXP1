@@ -5,16 +5,22 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
+import com.liferay.mobile.android.service.Session;
+import com.liferay.mobile.push.Push;
+import com.liferay.mobile.screens.push.PushScreensActivity;
+import org.json.JSONObject;
 
-public class MainActivity extends FragmentActivity implements MainFragment.OnFragmentInteractionListener,RatingFragment.OnFragmentInteractionListener,IdeaFragment.OnFragmentInteractionListener,BlogFragment.OnFragmentInteractionListener {
-
-    //private TextView mTextMessage;
-
+public class MainActivity extends PushScreensActivity implements MainFragment.OnFragmentInteractionListener,RatingFragment.OnFragmentInteractionListener,IdeaFragment.OnFragmentInteractionListener,BlogFragment.OnFragmentInteractionListener {
+  
+    private View content;
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -58,16 +64,35 @@ public class MainActivity extends FragmentActivity implements MainFragment.OnFra
         //mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-
+        content = findViewById(android.R.id.content);
+        
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         MainFragment main = new MainFragment();
         transaction.replace(R.id.fragment_container,main);
         transaction.commit();
+    }
 
+    @Override
+    protected Session getDefaultSession() {
+        return null;
+    }
+
+    @Override
+    protected void onPushNotificationReceived(JSONObject jsonObject) {
+        Log.d("PUSH", "Push received"+ jsonObject.toString());
+    }
+
+    @Override
+    protected void onErrorRegisteringPush(String message, Exception e) {
+        Snackbar.make(content, "Error registering device for push notifications", Snackbar.LENGTH_SHORT);
+    }
+
+    @Override
+    protected String getSenderId() {
+        return "1035449703602";
     }
 
     @Override
     public void onFragmentInteraction(Uri uri) {
-
     }
 }
