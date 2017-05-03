@@ -11,10 +11,10 @@
         android:icon="@drawable/ic_pencil_black_24dp"
         android:title="@string/title_blog" />
 
-    <item
-        android:id="@+id/navigation_newspaper"
-        android:icon="@drawable/ic_newspaper_black_24dp"
-        android:title="@string/title_news" />
+    <!--<item-->
+        <!--android:id="@+id/navigation_newspaper"-->
+        <!--android:icon="@drawable/ic_newspaper_black_24dp"-->
+        <!--android:title="@string/title_news" />-->
 
     <item
         android:id="@+id/navigation_rating"
