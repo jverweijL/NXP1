@@ -15,4 +15,5 @@
     <string name="shiftchangerequest">Request Shift Change</string>
     <string name="leaverequest">Leave Request</string>
     <string name="payslip">Show Last Pay Slip</string>
+    <string name="title_news">News</string>
 </resources>
