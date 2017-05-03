@@ -18,7 +18,12 @@ import com.liferay.mobile.push.Push;
 import com.liferay.mobile.screens.push.PushScreensActivity;
 import org.json.JSONObject;
 
-public class MainActivity extends PushScreensActivity implements MainFragment.OnFragmentInteractionListener,RatingFragment.OnFragmentInteractionListener,IdeaFragment.OnFragmentInteractionListener,BlogFragment.OnFragmentInteractionListener {
+public class MainActivity extends PushScreensActivity implements MainFragment.OnFragmentInteractionListener,
+                                                                    RatingFragment.OnFragmentInteractionListener,
+                                                                    IdeaFragment.OnFragmentInteractionListener,
+                                                                    BlogFragment.OnFragmentInteractionListener,
+                                                                    SelfserviceFragment.OnFragmentInteractionListener,
+                                                                    PaySlipFragment.OnFragmentInteractionListener {
   
     private View content;
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -33,21 +38,31 @@ public class MainActivity extends PushScreensActivity implements MainFragment.On
                 case R.id.navigation_home:
                     MainFragment main = new MainFragment();
                     transaction.replace(R.id.fragment_container,main);
+                    transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
                     transaction.commit();
                     return true;
                 case R.id.navigation_blog:
                     BlogFragment blog = new BlogFragment();
                     transaction.replace(R.id.fragment_container,blog);
+                    transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
                     transaction.commit();
                     return true;
                 case R.id.navigation_rating:
                     RatingFragment rating = new RatingFragment();
                     transaction.replace(R.id.fragment_container,rating);
+                    transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                    transaction.commit();
+                    return true;
+                case R.id.navigation_briefcase:
+                    SelfserviceFragment selfservice = new SelfserviceFragment();
+                    transaction.replace(R.id.fragment_container,selfservice);
+                    transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
                     transaction.commit();
                     return true;
                 case R.id.navigation_idea:
                     IdeaFragment idea = new IdeaFragment();
                     transaction.replace(R.id.fragment_container,idea);
+                    transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
                     transaction.commit();
                     return true;
             }
