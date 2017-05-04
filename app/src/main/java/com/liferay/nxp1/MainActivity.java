@@ -17,8 +17,13 @@ import com.liferay.mobile.android.service.Session;
 import com.liferay.mobile.push.Push;
 import com.liferay.mobile.screens.push.PushScreensActivity;
 import org.json.JSONObject;
-
-public class MainActivity extends PushScreensActivity implements RatingFragment.OnFragmentInteractionListener,IdeaFragment.OnFragmentInteractionListener,BlogFragment.OnFragmentInteractionListener {
+public class MainActivity extends PushScreensActivity implements   RatingFragment.OnFragmentInteractionListener,
+                                                                    IdeaFragment.OnFragmentInteractionListener,
+                                                                    BlogFragment.OnFragmentInteractionListener,
+                                                                    SelfserviceFragment.OnFragmentInteractionListener,
+                                                                    PaySlipFragment.OnFragmentInteractionListener,
+                                                                    ShiftChangeFragment.OnFragmentInteractionListener,
+                                                                    NewsFragment.OnFragmentInteractionListener {
   
     private View content;
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
