@@ -28,4 +28,13 @@
 		android:visibility="gone"
 		/>
 
+	<com.liferay.mobile.screens.asset.list.AssetListScreenlet
+		android:id="@+id/newslist"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		app:classNameId="30749"
+		app:pageSize="20"
+		/>
+
+
 </FrameLayout>

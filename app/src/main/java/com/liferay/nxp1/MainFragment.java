@@ -10,9 +10,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.VideoView;
+
+import com.liferay.mobile.android.service.Session;
 import com.liferay.mobile.screens.asset.AssetEntry;
 import com.liferay.mobile.screens.asset.display.AssetDisplayListener;
+import com.liferay.mobile.screens.asset.list.AssetListScreenlet;
+import com.liferay.mobile.screens.base.list.BaseListListener;
+import com.liferay.mobile.screens.context.SessionContext;
+import com.liferay.mobile.screens.context.User;
 import com.liferay.mobile.screens.dlfile.display.video.VideoDisplayScreenlet;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -21,6 +31,7 @@ public class MainFragment extends Fragment
 
 	private VideoDisplayScreenlet videoDisplayScreenlet;
 	private TextView textView;
+	private AssetListScreenlet news;
 
 	public MainFragment() {
 	}
@@ -34,6 +45,7 @@ public class MainFragment extends Fragment
 		videoDisplayScreenlet =
 			(VideoDisplayScreenlet) view.findViewById(R.id.asset_display_screenlet);
 		textView = (TextView) view.findViewById(R.id.no_video_textview);
+		news = (AssetListScreenlet) view.findViewById(R.id.newslist);
 
 		if (isMandatoryVideoWatched()) {
 			videoDisplayScreenlet.setVisibility(View.GONE);
@@ -46,7 +58,50 @@ public class MainFragment extends Fragment
 			videoDisplayScreenlet.setListener(this);
 		}
 
+		if (SessionContext.isLoggedIn()) {
+			//Session currentSession = SessionContext.createSessionFromCurrentSession();
+
+
+
+			//name			tagId
+			//department1	42336
+			//global		42316
+			//news			41156
+			//required		36875
+			//team2			42322
+
+			ArrayList<Long> tagIds = new ArrayList<Long>();
+			tagIds.add(42316L);
+
+			User user = SessionContext.getCurrentUser();
+			if (user.getEmail().toLowerCase().equals("admin@nxp.com")) {
+				tagIds.add(42336L);
+				tagIds.add(42322L);
+			} else if (user.getEmail().toLowerCase().equals("user1@nxp.com")){
+				tagIds.add(42336L);
+			} else if (user.getEmail().toLowerCase().equals("user2@nxp.com")){
+				tagIds.add(42322L);
+			} else if (user.getEmail().toLowerCase().equals("manager1@nxp.com")){
+				tagIds.add(42336L);
+			} else if (user.getEmail().toLowerCase().equals("manager2@nxp.com")){
+				tagIds.add(42322L);
+			}
+			
+
+			// set proper query to display news items
+			HashMap<String,Object> tags = new HashMap<>();
+
+			//check this for field/object names com/liferay/portlet/asset/service/persistence/AssetEntryQuery.html
+			tags.put("anyTagIds",tagIds.toArray());
+			news.setCustomEntryQuery(tags);
+			news.loadPage(0);
+		}
+
 		return view;
+	}
+
+	public void onListPageReceived() {
+
 	}
 
 	@Override
