@@ -5,7 +5,7 @@
     tools:context="com.liferay.nxp1.SelfserviceFragment">
 
 
-
+ <!-- to make it look fancy we can put a grid with icons here -->
 
 
     <LinearLayout
@@ -15,19 +15,19 @@
 
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/shiftchangebutton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/shiftchangerequest" />
 
         <Button
-            android:id="@+id/button6"
+            android:id="@+id/leaverequestbutton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/leaverequest" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/payslipbutton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/payslip" />

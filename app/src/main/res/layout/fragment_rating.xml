@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     tools:context="com.liferay.nxp1.RatingFragment">
 
-    <LinearLayout
+    <!--<LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -13,15 +13,40 @@
         <com.liferay.mobile.screens.webcontent.display.WebContentDisplayScreenlet
             android:id="@+id/webcontent"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             app:articleId="36837"/>
 
         <com.liferay.mobile.screens.rating.RatingScreenlet
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="100dp"
             app:editable="true"
             app:classPK="36839"
             app:className="com.liferay.journal.model.JournalArticle"/>
-    </LinearLayout>
+    </LinearLayout>-->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.liferay.mobile.screens.rating.RatingScreenlet
+            android:id="@+id/ratingbar"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            app:editable="true"
+            app:classPK="36839"
+            app:className="com.liferay.journal.model.JournalArticle"
+            app:layoutId="@layout/rating_star_bar_default"
+            android:layout_alignParentBottom="true"/>
+
+        <com.liferay.mobile.screens.webcontent.display.WebContentDisplayScreenlet
+            android:id="@+id/webcontent"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:articleId="36837"
+            android:layout_alignParentTop="true"
+            android:layout_above="@id/ratingbar"/>
+
+    </RelativeLayout>
 
 </FrameLayout>
