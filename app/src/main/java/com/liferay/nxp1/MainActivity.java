@@ -18,8 +18,7 @@ import com.liferay.mobile.push.Push;
 import com.liferay.mobile.screens.push.PushScreensActivity;
 import org.json.JSONObject;
 
-public class MainActivity extends PushScreensActivity implements MainFragment.OnFragmentInteractionListener,
-                                                                    RatingFragment.OnFragmentInteractionListener,
+public class MainActivity extends PushScreensActivity implements   RatingFragment.OnFragmentInteractionListener,
                                                                     IdeaFragment.OnFragmentInteractionListener,
                                                                     BlogFragment.OnFragmentInteractionListener,
                                                                     SelfserviceFragment.OnFragmentInteractionListener,
