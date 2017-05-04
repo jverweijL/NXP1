@@ -8,12 +8,24 @@
 	>
 
 
-	<com.liferay.mobile.screens.asset.display.AssetDisplayScreenlet
+	<com.liferay.mobile.screens.dlfile.display.video.VideoDisplayScreenlet
+		android:id="@+id/asset_display_screenlet"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		app:autoLoad="true"
+		app:autoLoad="false"
 		app:entryId="36874"
 		android:layout_gravity="center"
+		/>
+
+	<TextView
+		android:id="@+id/no_video_textview"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:textAlignment="center"
+		android:text="@string/no_videos_to_watch"
+		android:textSize="30sp"
+		android:layout_gravity="center"
+		android:visibility="gone"
 		/>
 
 </FrameLayout>
