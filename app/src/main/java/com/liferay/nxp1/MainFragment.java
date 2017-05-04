@@ -60,9 +60,7 @@ public class MainFragment extends Fragment
 
 		if (SessionContext.isLoggedIn()) {
 			//Session currentSession = SessionContext.createSessionFromCurrentSession();
-
-
-
+			
 			//name			tagId
 			//department1	42336
 			//global		42316
@@ -86,7 +84,7 @@ public class MainFragment extends Fragment
 			} else if (user.getEmail().toLowerCase().equals("manager2@nxp.com")){
 				tagIds.add(42322L);
 			}
-			
+
 
 			// set proper query to display news items
 			HashMap<String,Object> tags = new HashMap<>();
