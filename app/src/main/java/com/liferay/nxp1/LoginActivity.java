@@ -62,8 +62,13 @@ public class LoginActivity extends AppCompatActivity implements LoginListener {
 			@Override
 			public void onSuccess(JSONArray result) {
 				try {
-					String phoneNumber = result.getJSONObject(0).getString("number");
-					showContactCheckDialog(result.getJSONObject(0));
+					if (result.length() > 0) {
+						String phoneNumber = result.getJSONObject(0).getString("number");
+						showContactCheckDialog(result.getJSONObject(0));
+					}
+					else {
+						startActivity(new Intent(LoginActivity.this, MainActivity.class));
+					}
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
