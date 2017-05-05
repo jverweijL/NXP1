@@ -5,6 +5,8 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.media.RingtoneManager;
 import android.net.Uri;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.v4.app.NotificationCompat;
 import com.liferay.mobile.push.bus.BusUtil;
 import com.liferay.mobile.screens.push.AbstractPushService;
@@ -49,7 +51,7 @@ public class PushService extends AbstractPushService {
 						.setSmallIcon(R.mipmap.ic_launcher)
 						.build();
 
-				saveNotification(new ServerNotification("calendar", title + " " + contentText));
+				saveNotification(new ServerNotification("Calendar", title + " " + contentText));
 			} else if (json.getString("type").equals("teamMessage")) {
 				String author = json.getString("author");
 				String message = json.getString("message");
@@ -63,7 +65,7 @@ public class PushService extends AbstractPushService {
 					.setSmallIcon(R.mipmap.ic_launcher)
 					.build();
 
-				saveNotification(new ServerNotification("calendar", author + ": " + message));
+				saveNotification(new ServerNotification("Team message", author + ": " + message));
 			}
 
 			NotificationManager notificationManager =
@@ -74,7 +76,13 @@ public class PushService extends AbstractPushService {
 		}
 	}
 
-	private void saveNotification(ServerNotification notification) {
-		NotificationRepository.getInstance().saveNotification(notification);
+	private void saveNotification(final ServerNotification notification) {
+
+		new Handler(Looper.getMainLooper()).post(new Runnable() {
+			@Override
+			public void run() {
+				NotificationRepository.getInstance().saveNotification(notification);
+			}
+		});
 	}
 }
