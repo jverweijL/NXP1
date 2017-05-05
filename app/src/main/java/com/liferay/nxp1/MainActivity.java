@@ -18,13 +18,7 @@ import com.liferay.mobile.push.Push;
 import com.liferay.mobile.screens.push.PushScreensActivity;
 import org.json.JSONObject;
 
-public class MainActivity extends PushScreensActivity implements   RatingFragment.OnFragmentInteractionListener,
-                                                                    IdeaFragment.OnFragmentInteractionListener,
-                                                                    BlogFragment.OnFragmentInteractionListener,
-                                                                    SelfserviceFragment.OnFragmentInteractionListener,
-                                                                    PaySlipFragment.OnFragmentInteractionListener,
-                                                                    ShiftChangeFragment.OnFragmentInteractionListener,
-                                                                    NewsFragment.OnFragmentInteractionListener {
+public class MainActivity extends PushScreensActivity {
   
     private View content;
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -108,7 +102,4 @@ public class MainActivity extends PushScreensActivity implements   RatingFragmen
         return "1035449703602";
     }
 
-    @Override
-    public void onFragmentInteraction(Uri uri) {
-    }
 }
