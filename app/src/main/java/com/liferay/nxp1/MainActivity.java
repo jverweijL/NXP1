@@ -71,6 +71,7 @@ public class MainActivity extends PushScreensActivity implements   RatingFragmen
         }
 
     };
+    private BottomNavigationView navigation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,7 +79,7 @@ public class MainActivity extends PushScreensActivity implements   RatingFragmen
         setContentView(R.layout.activity_main);
 
         //mTextMessage = (TextView) findViewById(R.id.message);
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         content = findViewById(android.R.id.content);
         
@@ -110,5 +111,9 @@ public class MainActivity extends PushScreensActivity implements   RatingFragmen
 
     @Override
     public void onFragmentInteraction(Uri uri) {
+    }
+
+    public void goHome() {
+        navigation.setSelectedItemId(R.id.navigation_home);
     }
 }

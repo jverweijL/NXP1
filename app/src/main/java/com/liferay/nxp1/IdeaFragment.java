@@ -124,7 +124,7 @@ public class IdeaFragment extends Fragment
     public void onDDLFormRecordAdded(Record record) {
         Toast.makeText(getActivity(),"Information received!",Toast.LENGTH_SHORT).show();
 
-        getActivity().findViewById(R.id.navigation_home).performClick();
+        ((MainActivity) getActivity()).goHome();
 
 
         //FragmentTransaction ft = getFragmentManager().beginTransaction();
