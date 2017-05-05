@@ -5,10 +5,20 @@
 	tools:context="com.liferay.nxp1.NotificationsFragment"
 	>
 
+	<TextView
+		android:id="@+id/empty_list_message"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:text="@string/no_notifications_received"
+		android:textSize="30sp"
+		android:gravity="center"
+		/>
+
 	<android.support.v7.widget.RecyclerView
 		android:id="@+id/notification_list"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
+		android:visibility="gone"
 		/>
 
 </FrameLayout>

@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import com.liferay.nxp1.adapter.NotificationAdapter;
 import com.liferay.nxp1.notification.NotificationRepository;
 import com.liferay.nxp1.notification.ServerNotification;
@@ -23,6 +24,8 @@ public class NotificationsFragment extends Fragment implements NotificationRepos
 
 	private List<ServerNotification> serverNotifications = new ArrayList<>();
 	private NotificationAdapter adapter;
+	private RecyclerView recyclerView;
+	private TextView emptyListTextView;
 
 	public NotificationsFragment() {
 
@@ -34,7 +37,9 @@ public class NotificationsFragment extends Fragment implements NotificationRepos
 
 		adapter = new NotificationAdapter(serverNotifications);
 
-		RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.notification_list);
+		emptyListTextView = (TextView) view.findViewById(R.id.empty_list_message);
+
+		recyclerView = (RecyclerView) view.findViewById(R.id.notification_list);
 		recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 		recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), LinearLayout.HORIZONTAL));
 		recyclerView.setAdapter(adapter);
@@ -56,6 +61,11 @@ public class NotificationsFragment extends Fragment implements NotificationRepos
 
 	@Override
 	public void onNotificationReceived(List<ServerNotification> notifications) {
+		if (!notifications.isEmpty()) {
+			emptyListTextView.setVisibility(View.GONE);
+			recyclerView.setVisibility(View.VISIBLE);
+		}
+
 		serverNotifications.clear();
 		serverNotifications.addAll(notifications);
 		adapter.notifyDataSetChanged();
