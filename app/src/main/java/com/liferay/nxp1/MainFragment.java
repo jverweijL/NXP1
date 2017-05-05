@@ -23,6 +23,7 @@ import com.liferay.mobile.screens.dlfile.display.video.VideoDisplayScreenlet;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 
 import static android.content.Context.MODE_PRIVATE;
 

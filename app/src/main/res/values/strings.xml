@@ -15,11 +15,11 @@
     <string name="leaverequest">Leave Request</string>
     <string name="payslip">Show Last Pay Slip</string>
     <string name="title_news">News</string>
-	<string name="no_videos_to_watch">No Videos to watch</string>
+    <string name="no_videos_to_watch">No Videos to watch</string>
     <string name="yes">Yes</string>
     <string name="no_phone_changed">No, I have changed my phone</string>
     <string name="update">Update</string>
-	<string name="news">News</string>
-	<string name="notifications">Notifications</string>
-	<string name="no_notifications_received">No notifications received</string>
+    <string name="news">News</string>
+    <string name="notifications">Notifications</string>
+    <string name="no_notifications_received">No notifications received</string>
 </resources>
