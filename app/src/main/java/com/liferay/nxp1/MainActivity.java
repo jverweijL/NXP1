@@ -83,7 +83,7 @@ public class MainActivity extends PushScreensActivity implements   RatingFragmen
         content = findViewById(android.R.id.content);
         
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        MainFragment main = new MainFragment();
+        FragmentPager main = new FragmentPager();
         transaction.replace(R.id.fragment_container,main);
         transaction.commit();
     }

@@ -19,4 +19,6 @@
     <string name="yes">Yes</string>
     <string name="no_phone_changed">No, I have changed my phone</string>
     <string name="update">Update</string>
+	<string name="news">News</string>
+	<string name="notifications">Notifications</string>
 </resources>
