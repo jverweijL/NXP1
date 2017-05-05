@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.liferay.mobile.screens.ddl.form.DDLFormListener;
+import com.liferay.mobile.screens.ddl.form.DDLFormScreenlet;
 import com.liferay.mobile.screens.ddl.model.DocumentField;
 import com.liferay.mobile.screens.ddl.model.Record;
 
@@ -73,7 +74,12 @@ public class ShiftChangeFragment extends Fragment implements DDLFormListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_shift_change, container, false);
+        View view =  inflater.inflate(R.layout.fragment_shift_change, container, false);
+
+        DDLFormScreenlet form = (DDLFormScreenlet) view.findViewById(R.id.shiftchangeform);
+        form.setListener(this);
+
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

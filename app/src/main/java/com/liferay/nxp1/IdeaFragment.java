@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -78,8 +79,8 @@ public class IdeaFragment extends Fragment
         View view =  inflater.inflate(R.layout.fragment_idea, container, false);
 
         //TODO we can make this more flexible by setting recordsetid and structureid programmatically
-        //DDLFormScreenlet form = (DDLFormScreenlet) view.findViewById(R.id.ideaform);
-
+        DDLFormScreenlet form = (DDLFormScreenlet) view.findViewById(R.id.ideaform);
+        form.setListener(this);
 
         return view;
     }
@@ -121,6 +122,13 @@ public class IdeaFragment extends Fragment
     @Override
     public void onDDLFormRecordAdded(Record record) {
         Toast.makeText(getActivity(),"Information received!",Toast.LENGTH_SHORT).show();
+
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        MainFragment mainfragment = new MainFragment();
+        ft.replace(R.id.fragment_container,mainfragment);
+        //ft.addToBackStack("tag");
+        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+        ft.commit();
     }
 
     @Override

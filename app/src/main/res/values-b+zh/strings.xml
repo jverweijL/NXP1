@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">my恩智浦</string>
+    <string name="app_name">My恩智浦</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
@@ -7,4 +7,5 @@
     <string name="helloworld">Hello World!</string>
     <string name="title_activity_idea">IdeaActivity</string>
     <string name="shiftchangerequest">Request Shift Change</string>
+    <string name="sign_in">簽到</string>
 </resources>
