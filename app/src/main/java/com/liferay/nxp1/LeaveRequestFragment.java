@@ -1,161 +1,69 @@
 package com.liferay.nxp1;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
-
 import com.liferay.mobile.screens.ddl.form.DDLFormListener;
 import com.liferay.mobile.screens.ddl.form.DDLFormScreenlet;
 import com.liferay.mobile.screens.ddl.model.DocumentField;
 import com.liferay.mobile.screens.ddl.model.Record;
-
+import java.util.Map;
 import org.json.JSONObject;
 
-import java.util.Map;
-
-import static com.liferay.nxp1.R.id.container;
-
-
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link LeaveRequestFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link LeaveRequestFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class LeaveRequestFragment extends Fragment implements DDLFormListener {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+	public LeaveRequestFragment() {
+		// Required empty public constructor
+	}
 
-    private OnFragmentInteractionListener mListener;
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+		Bundle savedInstanceState) {
 
-    public LeaveRequestFragment() {
-        // Required empty public constructor
-    }
+		View view = inflater.inflate(R.layout.fragment_leave_request, container, false);
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment LeaveRequestFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static LeaveRequestFragment newInstance(String param1, String param2) {
-        LeaveRequestFragment fragment = new LeaveRequestFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+		//DDLFormScreenlet form = (DDLFormScreenlet) view.findViewById(R.id.shiftchangeform);
+		//form.setListener(this);
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+		return view;
+	}
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view =  inflater.inflate(R.layout.fragment_leave_request, container, false);
+	@Override
+	public void onDDLFormLoaded(Record record) {
 
-        DDLFormScreenlet form = (DDLFormScreenlet) view.findViewById(R.id.shiftchangeform);
-        form.setListener(this);
+	}
 
-        return view;
-    }
+	@Override
+	public void onDDLFormRecordLoaded(Record record, Map<String, Object> valuesAndAttributes) {
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
+	}
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }
+	@Override
+	public void onDDLFormRecordAdded(Record record) {
+		Toast.makeText(getActivity(), "Your request is received!", Toast.LENGTH_SHORT).show();
+		getActivity().findViewById(R.id.navigation_home).performClick();
+	}
 
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
+	@Override
+	public void onDDLFormRecordUpdated(Record record) {
 
-    @Override
-    public void onDDLFormLoaded(Record record) {
+	}
 
-    }
+	@Override
+	public void onDDLFormDocumentUploaded(DocumentField documentField, JSONObject jsonObject) {
 
-    @Override
-    public void onDDLFormRecordLoaded(Record record, Map<String, Object> valuesAndAttributes) {
+	}
 
-    }
+	@Override
+	public void onDDLFormDocumentUploadFailed(DocumentField documentField, Exception e) {
 
-    @Override
-    public void onDDLFormRecordAdded(Record record) {
-        Toast.makeText(getActivity(),"Your request is received!",Toast.LENGTH_SHORT).show();
-        getActivity().findViewById(R.id.navigation_home).performClick();
-    }
+	}
 
-    @Override
-    public void onDDLFormRecordUpdated(Record record) {
+	@Override
+	public void error(Exception e, String userAction) {
 
-    }
-
-    @Override
-    public void onDDLFormDocumentUploaded(DocumentField documentField, JSONObject jsonObject) {
-
-    }
-
-    @Override
-    public void onDDLFormDocumentUploadFailed(DocumentField documentField, Exception e) {
-
-    }
-
-    @Override
-    public void error(Exception e, String userAction) {
-
-    }
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
-    }
+	}
 }
