@@ -86,6 +86,7 @@ public class SelfserviceFragment extends Fragment {
                 ft = getFragmentManager().beginTransaction();
                 ShiftChangeFragment shiftchange = new ShiftChangeFragment();
                 ft.replace(R.id.fragment_container,shiftchange);
+                ft.addToBackStack("tag");
                 ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
                 ft.commit();
             }
@@ -98,6 +99,7 @@ public class SelfserviceFragment extends Fragment {
                 ft = getFragmentManager().beginTransaction();
                 PaySlipFragment payslip = new PaySlipFragment();
                 ft.replace(R.id.fragment_container,payslip);
+                ft.addToBackStack("tag");
                 ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
                 ft.commit();
             }
