@@ -9,9 +9,14 @@ import java.util.List;
 
 public class NotificationRepository {
 
+	public interface Listener {
+		void onNotificationReceived(List<ServerNotification> notifications);
+	}
+
 	private static NotificationRepository instance = null;
 
 	private List<ServerNotification> notificationList;
+	private Listener listener;
 
 	private NotificationRepository(){
 		notificationList = new ArrayList<>();
@@ -30,5 +35,18 @@ public class NotificationRepository {
 
 	public void saveNotification(ServerNotification notification) {
 		notificationList.add(0, notification);
+
+		if (listener != null) {
+			listener.onNotificationReceived(notificationList);
+		}
+	}
+
+	public void setListener(Listener listener) {
+		this.listener = listener;
+		listener.onNotificationReceived(notificationList);
+	}
+
+	public void removeListener() {
+		this.listener = null;
 	}
 }
