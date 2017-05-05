@@ -37,8 +37,8 @@ public class MainActivity extends PushScreensActivity implements   RatingFragmen
 
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    MainFragment main = new MainFragment();
-                    transaction.replace(R.id.fragment_container,main);
+                    FragmentPager main = new FragmentPager();
+                    transaction.replace(R.id.fragment_container, main);
                     transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
                     transaction.commit();
                     return true;

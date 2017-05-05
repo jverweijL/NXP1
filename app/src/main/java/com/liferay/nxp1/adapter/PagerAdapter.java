@@ -4,7 +4,9 @@ import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import com.liferay.nxp1.MainFragment;
+import com.liferay.nxp1.NotificationsFragment;
 import com.liferay.nxp1.R;
 import com.liferay.nxp1.RatingFragment;
 
@@ -13,7 +15,7 @@ import com.liferay.nxp1.RatingFragment;
  * @author Víctor Galán Grande
  */
 
-public class PagerAdapter extends FragmentPagerAdapter {
+public class PagerAdapter extends FragmentStatePagerAdapter {
 
 	private final Context context;
 
@@ -28,7 +30,7 @@ public class PagerAdapter extends FragmentPagerAdapter {
 		if (position == 0) {
 			return new MainFragment();
 		} else {
-			return new RatingFragment();
+			return new NotificationsFragment();
 		}
 	}
 
