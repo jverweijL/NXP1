@@ -25,8 +25,8 @@ public class LeaveRequestFragment extends Fragment implements DDLFormListener {
 
 		View view = inflater.inflate(R.layout.fragment_leave_request, container, false);
 
-		//DDLFormScreenlet form = (DDLFormScreenlet) view.findViewById(R.id.shiftchangeform);
-		//form.setListener(this);
+		DDLFormScreenlet form = (DDLFormScreenlet) view.findViewById(R.id.leaverequestform);
+		form.setListener(this);
 
 		return view;
 	}
