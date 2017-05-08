@@ -39,7 +39,7 @@
             app:layoutId="@layout/rating_star_bar_default"
             android:layout_alignParentBottom="true"/>
 
-        <com.liferay.nxp1.WebContentCustomScreenlet
+        <com.liferay.mobile.screens.webcontent.display.WebContentDisplayScreenlet
             android:id="@+id/webcontent"
             android:layout_width="match_parent"
             android:layout_height="0dp"
