@@ -4,10 +4,10 @@
     android:layout_height="match_parent"
     tools:context="com.liferay.nxp1.NewsFragment">
 
-    <com.liferay.mobile.screens.asset.list.AssetListScreenlet
-        android:id="@+id/newslist"
-        android:layout_height="match_parent"
+    <com.liferay.mobile.screens.asset.display.AssetDisplayScreenlet
+        android:id="@+id/newsitemarticle"
         android:layout_width="match_parent"
-        />
+        android:layout_height="match_parent">
+    </com.liferay.mobile.screens.asset.display.AssetDisplayScreenlet>
 
 </FrameLayout>

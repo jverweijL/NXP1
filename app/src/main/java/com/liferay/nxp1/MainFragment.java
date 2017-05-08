@@ -4,6 +4,7 @@ import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,15 +24,17 @@ import com.liferay.mobile.screens.dlfile.display.video.VideoDisplayScreenlet;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 
 import static android.content.Context.MODE_PRIVATE;
 
 public class MainFragment extends Fragment
-	implements AssetDisplayListener, MediaPlayer.OnCompletionListener {
+	implements AssetDisplayListener, MediaPlayer.OnCompletionListener, BaseListListener<AssetEntry> {
 
 	private VideoDisplayScreenlet videoDisplayScreenlet;
 	private TextView textView;
 	private AssetListScreenlet news;
+	public FragmentTransaction ft;
 
 	public MainFragment() {
 	}
@@ -46,6 +49,7 @@ public class MainFragment extends Fragment
 			(VideoDisplayScreenlet) view.findViewById(R.id.asset_display_screenlet);
 		textView = (TextView) view.findViewById(R.id.no_video_textview);
 		news = (AssetListScreenlet) view.findViewById(R.id.newslist);
+		news.setListener(this);
 
 		if (isMandatoryVideoWatched()) {
 			videoDisplayScreenlet.setVisibility(View.GONE);
@@ -132,5 +136,28 @@ public class MainFragment extends Fragment
 			getActivity().getSharedPreferences("videoWatched", MODE_PRIVATE).edit();
 		editor.putBoolean("isVideoWatched", true);
 		editor.commit();
+	}
+
+	@Override
+	public void onListPageFailed(int startRow, Exception e) {
+
+	}
+
+	@Override
+	public void onListPageReceived(int startRow, int endRow, List<AssetEntry> entries, int rowCount) {
+
+	}
+
+	@Override
+	public void onListItemSelected(AssetEntry element, View view) {
+		String classname = element.getClassName();
+		Long classpk = element.getClassPK();
+
+		ft = getFragmentManager().beginTransaction();
+		NewsFragment newsitem = NewsFragment.newInstance(classname,classpk.toString());
+		ft.replace(R.id.fragment_container,newsitem);
+		//ft.addToBackStack("tag");
+		ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+		ft.commit();
 	}
 }

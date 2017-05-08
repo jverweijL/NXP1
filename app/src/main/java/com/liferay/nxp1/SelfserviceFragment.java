@@ -76,6 +76,12 @@ public class SelfserviceFragment extends Fragment {
         button1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Toast.makeText(getActivity(),"show leaverequest",Toast.LENGTH_SHORT).show();
+                ft = getFragmentManager().beginTransaction();
+                LeaveRequestFragment leaverequest = new LeaveRequestFragment();
+                ft.replace(R.id.fragment_container,leaverequest);
+                ft.addToBackStack("tag");
+                ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                ft.commit();
             }
         });
 

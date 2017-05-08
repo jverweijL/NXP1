@@ -119,6 +119,7 @@ public class ShiftChangeFragment extends Fragment implements DDLFormListener {
     @Override
     public void onDDLFormRecordAdded(Record record) {
         Toast.makeText(getActivity(),"Your request is received!",Toast.LENGTH_SHORT).show();
+        getActivity().findViewById(R.id.navigation_home).performClick();
     }
 
     @Override
