@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:className="com.liferay.document.library.kernel.model.DLFileEntry"
-        app:classPK="37520"/>
+        app:classPK="37520"
+        app:layoutId="@layout/pdf_display_custom"/>
 
 </FrameLayout>
